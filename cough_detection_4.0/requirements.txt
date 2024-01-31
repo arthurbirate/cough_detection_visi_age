@@ -1,0 +1,5 @@
+xgboost==0.90
+scipy
+sounddevice
+librosa
+requests

@@ -1,0 +1,7 @@
+recordings
+notebooks
+paper
+sample_recordings
+venv
+.gitignore
+test.py
