@@ -3,3 +3,4 @@ scipy
 sounddevice
 librosa
 requests
+numpy
