@@ -131,20 +131,27 @@ class features:
         sum_mag = np.sum(magnitudes)
         
         # spectral centroid = weighted mean of frequencies wrt FFT value at each frequency
-        spec_centroid = np.sum(magnitudes*freqs) / sum_mag
+        # spec_centroid = np.sum(magnitudes*freqs) / sum_mag
+        spec_centroid = np.sum(magnitudes * freqs) / (sum_mag + 1e-17)
 
         #spectral roloff = frequency below which 95% of signal energy lies
         cumsum_mag = np.cumsum(magnitudes)
         spec_rolloff = np.min(np.where(cumsum_mag >= 0.95*sum_mag)[0]) 
 
         #spectral spread = weighted standard deviation of frequencies wrt FFT value
-        spec_spread = np.sqrt(np.sum(((freqs-spec_centroid)**2)*magnitudes) / sum_mag)
+        # spec_spread = np.sqrt(np.sum(((freqs-spec_centroid)**2)*magnitudes) / sum_mag)
+        spec_spread = np.sqrt(np.sum(((freqs - spec_centroid) ** 2) * magnitudes) / (sum_mag + 1e-17))
 
         #spectral skewness = distribution of the spectrum around its mean
-        spec_skewness = np.sum(((freqs-spec_centroid)**3)*magnitudes) / ((spec_spread**3)*sum_mag)
+        # spec_skewness = np.sum(((freqs-spec_centroid)**3)*magnitudes) / ((spec_spread**3)*sum_mag)
+        # Line 146
+        spec_skewness = np.sum(((freqs - spec_centroid) ** 3) * magnitudes) / ((spec_spread ** 3) * (sum_mag + 1e-17))
+
+        # Line 149
+        spec_kurtosis = np.sum(((freqs - spec_centroid) ** 4) * magnitudes) / ((spec_spread ** 4) * (sum_mag + 1e-17))
 
         #spectral kurtosis = flatness of spectrum around its mean
-        spec_kurtosis =  np.sum(((freqs-spec_centroid)**4)*magnitudes) / ((spec_spread**4)*sum_mag)
+        # spec_kurtosis =  np.sum(((freqs-spec_centroid)**4)*magnitudes) / ((spec_spread**4)*sum_mag)
 
         #spectral bandwidth = weighted spectral standard deviation
         p=2
@@ -164,7 +171,9 @@ class features:
         psd_len = len(psd)
         gmean = np.exp((1/psd_len)*np.sum(np.log(psd + 1e-17)))
         amean = (1/psd_len)*np.sum(psd)
-        SF = gmean/amean
+        # SF = gmean/amean
+        SF = gmean / (amean + 1e-17)
+
         SSTD = np.std(psd)
         return np.array([SF, SSTD]), names
         
@@ -215,8 +224,9 @@ class features:
         fs, cough = data
         peak = np.amax(np.absolute(cough))
         RMS = np.sqrt(np.mean(np.square(cough)))
-        return np.ones((1,1))*peak/RMS, ['Crest_Factor']
-    
+        # return np.ones((1,1))*peak/RMS, ['Crest_Factor']
+        return np.ones((1, 1)) * peak / (RMS + 1e-17), ['Crest_Factor']
+
     def LGTH(self,data):
         "Compute the length of the segment in seconds"
         fs, cough = data
@@ -234,7 +244,9 @@ class features:
         for lf, hf in self.FREQ_CUTS:
             idx_band = np.logical_and(freqs >= lf, freqs <= hf)
             band_power = simps(psd[idx_band], dx=dx_freq)
-            feat.append(band_power/total_power)
+            # feat.append(band_power/total_power)
+            feat.append(band_power / (total_power + 1e-17))
+
         feat = np.array(feat)
         feat_names = [f'PSD_{lf}-{hf}' for lf, hf in self.FREQ_CUTS]
         return feat, feat_names
