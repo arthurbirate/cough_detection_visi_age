@@ -1,6 +1,6 @@
 
 
+<img src="https://github.com/arthurbirate/cough_detection_visi_age/cough_detection_4.0/logo/caringminds.jpg" alt="Alt text" width="300"/>
 
-![Alt text](cough_detection_4.0/logo/caringminds.jpg).
 
 # cough detection : Visi-Age
