@@ -6,4 +6,5 @@
 # cough detection : Visi-Age
 
 
-* This project 
+1. Project Overview
+The Cough Detection System is designed to monitor the health of elderly individuals by utilizing XGBoost, a machine learning algorithm, to detect coughs. Coughing can be an indicator of various health conditions, and this system aims to provide an early warning mechanism for caregivers and healthcare professionals.
