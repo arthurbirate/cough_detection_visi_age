@@ -11,7 +11,7 @@ The Cough Detection System is designed to monitor the health of elderly individu
 
 # 2. Project Goals
 
-# Continuous Monitoring: 
+### Continuous Monitoring: 
 The system aims to provide continuous monitoring of coughing episodes, enabling caregivers to track changes in the frequency and severity of coughs over time. This longitudinal data can offer valuable insights into the individual's health condition and progression of any underlying illnesses.
 
 
