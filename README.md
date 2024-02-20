@@ -33,7 +33,41 @@ Machine learning algorithms, such as XGBoost, are employed to analyze audio data
 The system records coughing events along with relevant metadata, such as timestamp and possibiblty, for further analysis. Data logging allows caregivers to review historical coughing patterns and identify trends or anomalies in the individual's health condition. and the data is sent to the application where caregivers can view through a visualization how msny times a patient has been coughing in a week or monthly 
 
 # 4.Prerequisites
-Ensure you have the following installed before running the project:
 
-Python (version 3.11 and above)
-Dependencies listed in requirements.txt (install using pip install -r requirements.txt)
+
+Before running the project, ensure you have the following prerequisites installed:
+
+- Python (version 3.11 and above)
+- Dependencies listed in `requirements.txt` (install using `pip install -r requirements.txt`)
+- Audio Input Device Configuration
+
+### Audio Input Device Configuration
+
+Before running the project, you may need to configure the audio input device to use for capturing cough sounds. To assist in selecting the appropriate audio device, you can run the following Python script:
+
+```python
+import pyaudio
+
+def list_audio_devices():
+    p = pyaudio.PyAudio()
+
+    info = p.get_host_api_info_by_index(0)
+    numdevices = info.get('deviceCount')
+
+    print("Available audio devices:")
+    for i in range(0, numdevices):
+        device_info = p.get_device_info_by_host_api_device_index(0, i)
+        device_name = device_info.get('name')
+        device_id = device_info.get('index')
+        print(f"Device {i}: {device_name}, ID: {device_id}")
+
+    p.terminate()
+
+if __name__ == "__main__":
+    list_audio_devices()
+
+
+This script lists the available audio devices along with their IDs. Run the script to identify the audio input device you want to use for capturing cough sounds. Note down the device ID for configuration in the main project script.
+
+Ensure that the selected audio device is properly connected and configured on your system before running the project.
+
