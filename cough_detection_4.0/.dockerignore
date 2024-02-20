@@ -4,4 +4,4 @@ paper
 sample_recordings
 venv
 .gitignore
-test.py
+list_audio_devices.py
