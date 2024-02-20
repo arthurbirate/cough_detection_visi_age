@@ -66,7 +66,7 @@ def list_audio_devices():
 if __name__ == "__main__":
     list_audio_devices()
 
-
+```
 This script lists the available audio devices along with their IDs. Run the script to identify the audio input device you want to use for capturing cough sounds. Note down the device ID for configuration in the main project script.
 
 Ensure that the selected audio device is properly connected and configured on your system before running the project.
