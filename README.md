@@ -32,7 +32,7 @@ Machine learning algorithms, such as XGBoost, are employed to analyze audio data
 
 The system records coughing events along with relevant metadata, such as timestamp and possibiblty, for further analysis. Data logging allows caregivers to review historical coughing patterns and identify trends or anomalies in the individual's health condition. and the data is sent to the application where caregivers can view through a visualization how msny times a patient has been coughing in a week or monthly 
 
-# 2.Prerequisites
+# 4.Prerequisites
 Ensure you have the following installed before running the project:
 
 Python (version 3.11 and above)
