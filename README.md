@@ -18,7 +18,7 @@ The system aims to provide continuous monitoring of coughing episodes, enabling 
 ### Remote Monitoring: 
 With the capability to integrate with remote monitoring systems and communication platforms, the Cough Detection System facilitates remote caregiving. This feature is particularly beneficial for elderly individuals who live alone or in remote locations, allowing caregivers to monitor their health status remotely and provide assistance as needed.
 
-# Key Components:
+# 3. Key Components:
 
 ### Audio Input Module:  
 The system utilizes microphones or audio input devices to capture ambient sounds, including coughs. Python libraries such as PyAudio or SoundDevice are employed to access audio input streams from microphones.
