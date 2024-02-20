@@ -71,3 +71,29 @@ This script lists the available audio devices along with their IDs. Run the scri
 
 Ensure that the selected audio device is properly connected and configured on your system before running the project.
 
+
+## Running the Application
+
+To run the Cough Detection System application, follow these steps:
+
+1. Make sure you have Python installed on your system. You can download and install Python from the official website: [Python Downloads](https://www.python.org/downloads/).
+
+2. Clone this repository to your local machine:
+
+3. Navigate to the project directory:
+
+4. Install the required dependencies by running: pip install -r requirements.txt
+
+5. Configure the audio input device by running the provided script: python list_audio_devices.py
+
+
+6. Modify the `detect_cough.py` script to use the identified audio input device ID. You can typically do this by setting the `device_index` parameter in the audio input configuration.
+
+7. Run the application: python detect_cough.py
+
+
+
+
+
+
+
